@@ -1,0 +1,52 @@
+<app-menu></app-menu>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="titulo">Crear Cita</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4  justify-content-center">
+        <div class="col-md-6 ">
+            <div class="card">
+                <div class="card-body">
+
+                    <form [formGroup]="form" (ngSubmit)="guardarCita()">
+                        <div class="input-group input-group-lg mb-3">
+                            <span class="input-group-text">
+                              <i
+                              [class.green-icon]="this.form.get('fechahora')?.valid"
+                              [class.red-icon]="this.form.get('fechahora')?.invalid && this.form.get('fechahora')?.touched"></i>
+                          </span>
+                            <input formControlName="fechahora" type="text" class="form-control" placeholder="fechahora">
+                        </div>
+                        <div class="input-group input-group-lg mb-3">
+                            <span class="input-group-text">
+                              <i
+                                  [class.green-icon]="this.form.get('motivocita')?.valid"
+                                  [class.red-icon]="this.form.get('motivocita')?.invalid && this.form.get('motivocita')?.touched"></i>
+                          </span>
+                            <input formControlName="motivocita" maxlength="16" type="text" class="form-control" placeholder="motivocita">
+                        </div>
+                        <div class="input-group input-group-lg mb-3">
+                            <span class="input-group-text">
+                            <i
+                            [class.green-icon]="this.form.get('paciente')?.valid"
+                            [class.red-icon]="this.form.get('paciente')?.invalid && this.form.get('paciente')?.touched"></i>
+                        </span>
+                            <input formControlName="paciente" type="text" class="form-control" placeholder="paciente">
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>

@@ -1,0 +1,53 @@
+<router-outlet></router-outlet>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="titulo">Inicio Sesion</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4  justify-content-center">
+        <div class="col-md-6 ">
+            <div class="card">
+                <div class="card-body">
+
+                    <form [formGroup]="form" (ngSubmit)="IniciarSesion()">
+                        <div class="input-group input-group-lg mb-3">
+                            <span class="input-group-text">
+                              <i
+                              [class.green-icon]="this.form.get('usuario')?.valid"
+                              [class.red-icon]="this.form.get('usuario')?.invalid && this.form.get('usuario')?.touched"></i>
+                          </span>
+                            <input formControlName="usuario" type="text" class="form-control" placeholder="Usuario">
+                        </div>
+                        <div class="input-group input-group-lg mb-3">
+                            <span class="input-group-text">
+                              <i
+                                  [class.green-icon]="this.form.get('clave')?.valid"
+                                  [class.red-icon]="this.form.get('clave')?.invalid && this.form.get('clave')?.touched"></i>
+                          </span>
+                            <input formControlName="clave" maxlength="16" type="text" class="form-control" placeholder="Clave">
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button [disabled]="this.form.invalid" type="submit" class="btn btn-success btn-lg">
+                              <i class="fas fa-database"></i>&nbsp; Iniciar Sesion</button>
+                        </div>
+                        <br>
+
+                        <div class="justify-content-center">
+                            <label>¿No tienes cuenta? Registrate como <a href="/registro-pacientes">Paciente</a> o <a href="/registro-medicos">Medico</a></label>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>

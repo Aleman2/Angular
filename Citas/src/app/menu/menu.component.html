@@ -1,0 +1,23 @@
+<router-outlet></router-outlet>
+
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+
+    <ul class="nav navbar">
+
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/inicio">Home</a>
+        </li>
+        <li *ngIf="paciente||medico" class="nav-item">
+            <a class="nav-link" routerLink="/citas">Ver Citas</a>
+        </li>
+        <li *ngIf="paciente" class="nav-item">
+            <a class="nav-link" routerLink="/contacto">Contacto</a>
+        </li>
+        <li *ngIf="medico" class="nav-item">
+            <a class="nav-link" routerLink="/pacientes">Pacientes</a>
+        </li>
+
+    </ul>
+
+</nav>

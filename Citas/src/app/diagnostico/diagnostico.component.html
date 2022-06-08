@@ -1,0 +1,21 @@
+<app-menu></app-menu>
+
+<div class="col-lg-6">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="titulo">LISTADO DE CITAS</h5>
+            <table class="table">
+                <tbody>
+                    <tr *ngIf="diagnostico">
+                        <td>Enfermedad: {{ diagnostico.enfermedad }}</td>
+                        <td>Valoracion: {{ diagnostico.valoracionEspecialista }}</td>
+
+
+
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

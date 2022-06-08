@@ -1,0 +1,102 @@
+<router-outlet></router-outlet>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="titulo">Inicio Sesion</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4  justify-content-center">
+        <div class="col-md-6 ">
+            <div class="card">
+                <div class="card-body">
+
+                    <form [formGroup]="form" (ngSubmit)="guardarPaciente()">
+                        <div class="input-group input-group-lg mb-3">
+                            <span class="input-group-text">
+                              <i
+                              [class.green-icon]="this.form.get('nombre')?.valid"
+                              [class.red-icon]="this.form.get('nombre')?.invalid && this.form.get('nombre')?.touched"></i>
+                          </span>
+                            <input formControlName="nombre" type="text" class="form-control" placeholder="Nombre">
+                        </div>
+                        <div class="input-group input-group-lg mb-3">
+                            <span class="input-group-text">
+                              <i
+                                  [class.green-icon]="this.form.get('apellidos')?.valid"
+                                  [class.red-icon]="this.form.get('apellidos')?.invalid && this.form.get('apellidos')?.touched"></i>
+                          </span>
+                            <input formControlName="apellidos" maxlength="16" type="text" class="form-control" placeholder="Apellidos">
+                        </div>
+                        <div class="input-group input-group-lg mb-3">
+                            <span class="input-group-text">
+                            <i
+                            [class.green-icon]="this.form.get('user')?.valid"
+                            [class.red-icon]="this.form.get('user')?.invalid && this.form.get('user')?.touched"></i>
+                        </span>
+                            <input formControlName="user" type="text" class="form-control" placeholder="Usuario">
+                        </div>
+                        <div class="input-group input-group-lg mb-3">
+                            <span class="input-group-text">
+                            <i
+                                [class.green-icon]="this.form.get('nss')?.valid"
+                                [class.red-icon]="this.form.get('nss')?.invalid && this.form.get('nss')?.touched"></i>
+                            </span>
+                            <input formControlName="nss" maxlength="16" type="text" class="form-control" placeholder="Nss">
+                        </div>
+                        <div class="input-group input-group-lg mb-3">
+                            <span class="input-group-text">
+                          <i
+                          [class.green-icon]="this.form.get('numTarjeta')?.valid"
+                          [class.red-icon]="this.form.get('numTarjeta')?.invalid && this.form.get('numTarjeta')?.touched"></i>
+                            </span>
+                            <input formControlName="numTarjeta" type="text" class="form-control" placeholder="NumTarjeta">
+                        </div>
+                        <div class="input-group input-group-lg mb-3">
+                            <span class="input-group-text">
+                          <i
+                              [class.green-icon]="this.form.get('telefono')?.valid"
+                              [class.red-icon]="this.form.get('telefono')?.invalid && this.form.get('telefono')?.touched"></i>
+                            </span>
+                            <input formControlName="telefono" maxlength="16" type="text" class="form-control" placeholder="Telefono">
+                        </div>
+                        <div class="input-group input-group-lg mb-3">
+                            <span class="input-group-text">
+                          <i
+                        [class.green-icon]="this.form.get('direccion')?.valid"
+                        [class.red-icon]="this.form.get('direccion')?.invalid && this.form.get('direccion')?.touched"></i>
+                          </span>
+                            <input formControlName="direccion" type="text" class="form-control" placeholder="Direccion">
+                        </div>
+                        <div class="input-group input-group-lg mb-3">
+                            <span class="input-group-text">
+                           <i
+                            [class.green-icon]="this.form.get('clave')?.valid"
+                            [class.red-icon]="this.form.get('clave')?.invalid && this.form.get('clave')?.touched"></i>
+                            </span>
+                            <input formControlName="clave" maxlength="16" type="text" class="form-control" placeholder="Clave">
+                        </div>
+
+
+                        <div class="d-grid gap-2">
+                            <button [disabled]="this.form.invalid" type="submit" class="btn btn-success btn-lg">
+                              <i class="fas fa-database"></i>&nbsp; Registrar Usuario</button>
+                        </div>
+                        <br>
+
+                        <div class="justify-content-center">
+                            <label>¿Ya tienes cuenta? Inicia sesion <a href="/iniciar-sesion">aqui</a></label>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>

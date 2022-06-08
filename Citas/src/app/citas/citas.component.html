@@ -1,0 +1,65 @@
+<app-menu></app-menu>
+
+<div class="col-lg-6">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="titulo">LISTADO DE CITAS</h5>
+            <table class="table">
+                <tbody *ngIf="paciente">
+                    <tr>
+                        <td>Fecha</td>
+                        <td>Motivo</td>
+                        <td>Nombre Paciente</td>
+                        <td>Nombre Medico</td>
+                        <td>Diagnostico</td>
+
+                    </tr>
+                    <tr *ngFor="let citas of listCitas">
+                        <td>{{ citas.fechaHora }}</td>
+                        <td>{{ citas.motivoCita }}</td>
+                        <td>{{ citas.paciente.nombre }}</td>
+                        <td>{{ citas.medico.nombre }}</td>
+
+                        <td *ngIf="citas.diagnostico">
+                            <i (click)="verdiagnostico(citas.diagnostico.id)" class="far fa-edit text-info">Ver Diagnostico</i>
+                        </td>
+                        <td *ngIf="!citas.diagnostico">
+                            Pendiente
+                        </td>
+
+                    </tr>
+
+                </tbody>
+                <tbody *ngIf="medico">
+                    <tr>
+                        <td>Fecha</td>
+                        <td>Motivo</td>
+                        <td>Nombre Paciente</td>
+                        <td>Nombre Medico</td>
+                        <td>Diagnostico</td>
+
+                    </tr>
+                    <tr *ngFor="let citas of listCitas">
+                        <td>{{ citas.fechaHora }}</td>
+                        <td>{{ citas.motivoCita }}</td>
+                        <td>{{ citas.paciente.nombre }}</td>
+                        <td>{{ citas.medico.nombre }}</td>
+
+                        <td *ngIf="citas.diagnostico">
+                            <i (click)="verdiagnostico(citas.diagnostico.id)" class="far fa-edit text-info">Ver Diagnostico</i>
+                        </td>
+                        <td *ngIf="!citas.diagnostico">
+                            <i (click)="creardiagnostico(citas.id)" class="far fa-edit text-info">Crear Diagnostico</i>
+                        </td>
+
+                    </tr>
+
+                </tbody>
+            </table>
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-success btn-lg">
+                <i (click)="crearcita()" class="fas fa-database">Crear Cita</i>&nbsp; </button>
+            </div>
+        </div>
+    </div>
+</div>

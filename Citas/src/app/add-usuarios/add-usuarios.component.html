@@ -1,0 +1,92 @@
+<router-outlet></router-outlet>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="titulo">Usuarios</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="titulo">{{ accion | uppercase }} TARJETA</h5>
+
+                    <form [formGroup]="form" (ngSubmit)="guardarUsuario()">
+                        <div class="input-group input-group-lg mb-3">
+                            <span class="input-group-text">
+                              <i class="fas fa-user"
+                              [class.green-icon]="this.form.get('nombre')?.valid"
+                              [class.red-icon]="this.form.get('nombre')?.invalid && this.form.get('nombre')?.touched"></i>
+                          </span>
+                            <input formControlName="nombre" type="text" class="form-control" placeholder="Nombre">
+                        </div>
+                        <div class="input-group input-group-lg mb-3">
+                            <span class="input-group-text">
+                              <i class="fas fa-credit-card"
+                                  [class.green-icon]="this.form.get('apellidos')?.valid"
+                                  [class.red-icon]="this.form.get('apellidos')?.invalid && this.form.get('apellidos')?.touched"></i>
+                          </span>
+                            <input formControlName="apellidos" maxlength="16" type="text" class="form-control" placeholder="Apellidos">
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-7">
+                                <div class="input-group input-group-lg mb-3">
+                                    <span class="input-group-text">
+                                      <i class="fas fa-calendar-alt"
+                                          [class.green-icon]="this.form.get('user')?.valid"
+                                          [class.red-icon]="this.form.get('user')?.invalid && this.form.get('user')?.touched"></i>
+                                  </span>
+                                    <input formControlName="user" maxlength="15" type="text" class="form-control" placeholder="Usuario">
+                                </div>
+                            </div>
+                            <div class="col-lg-5">
+                                <div class="input-group input-group-lg mb-3">
+                                    <span class="input-group-text">
+                                      <i class="fas fa-key"
+                                          [class.green-icon]="this.form.get('clave')?.valid"
+                                          [class.red-icon]="this.form.get('clave')?.invalid && this.form.get('clave')?.touched"></i>
+                                  </span>
+                                    <input formControlName="clave" maxlength="15" type="password" class="form-control" placeholder="Clave">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button [disabled]="this.form.invalid" type="submit" class="btn btn-success btn-lg">
+                              <i class="fas fa-database"></i>&nbsp; Aceptar</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="titulo">LISTADO DE USUARIOS</h5>
+                    <table class="table">
+                        <tbody>
+                            <tr *ngFor="let usuario of listUsers">
+                                <td>{{ usuario.nombre }}</td>
+                                <td>{{ usuario.apellidos }}</td>
+                                <td>{{ usuario.user }}</td>
+                                <td>
+                                    <i (click)="editarUsuario(usuario)" class="far fa-edit text-info"></i>
+                                </td>
+                                <td>
+                                    <i (click)="eliminarUsuario(usuario.id)" class="far fa-trash-alt text-danger"></i>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
